@@ -7,8 +7,10 @@ headers = {"x-fsign": "SW9D1eZo"}
 
 
 def main():
-    feed = 'f_1_-1_3_ru_5'
-    url = f'https://d.flashscore.ru.com/x/feed/{feed}'
+    # feed = 'f_1_-1_3_ru_5'
+    # url = f'https://d.flashscore.ru.com/x/feed/{feed}'
+    feed = 'f_1_0_3_ru_4'
+    url = f'https://50.flashscore.ninja/60/x/feed/{feed}'
     response = requests.get(url=url, headers=headers)
     data = response.text.split('¬')
 
