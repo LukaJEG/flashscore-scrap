@@ -1,18 +1,44 @@
-import json
+import configparser
 import requests
+from bs4 import BeautifulSoup
+import json
 from datetime import datetime
 
-
+# headers = {}
 headers = {"x-fsign": "SW9D1eZo"}
+# Считываем учетные данные
+config = configparser.ConfigParser()
+config.read("flashscore.cfg")
+
+
+# Присваиваем значения внутренним переменным
+k_game   = config['Telegram']['game']
+k_liga = config['Telegram']['liga']
+k_country = config['Telegram']['country']
+username = config['Telegram']['username']
 
 
 def main():
     # feed = 'f_1_-1_3_ru_5'
     # url = f'https://d.flashscore.ru.com/x/feed/{feed}'
-    feed = 'f_1_0_3_ru_4'
-    url = f'https://50.flashscore.ninja/60/x/feed/{feed}'
+    # feed = 'r_1_1'
+    # url = f'https://46.flashscore.ninja/46/x/feed/{feed}'
+    feed = 'fo_4_0_3_ru_1_0'
+    url = f'https://2.flashscore.ninja/802/x/feed/{feed}'
+    # feed = 'r_4_1'
+    # url = f'https://2.flashscore.ninja/802/x/feed/{feed}'
     response = requests.get(url=url, headers=headers)
-    data = response.text.split('¬')
+    r_text = response.text
+    if is_data(r_text):
+        prepars(r_text)
+
+def is_data(r_text):
+    with open(feed, 'w', encoding='utf8') as outfile:
+        print(r_text, outfile, ensure_ascii=False)
+    return True
+
+def prepars(r_text):
+    data = response.r_text.split('¬')
 
     data_list = [{}]
 
@@ -35,7 +61,8 @@ def main():
 
         #     print(date, team_1, team_2, score, sep='/')
 
-            # print(json.dumps(game, ensure_ascii=False, indent=2))
+    with open(feed+'.json', 'w', encoding='utf8') as outfile:
+        json.dump(data_list, outfile, ensure_ascii=False, indent=2)
 
 
 if __name__ == '__main__':
