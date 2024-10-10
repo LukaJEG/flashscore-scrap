@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "..\\MyProjects\\Parsing"
+		},
+		{
+			"path": "."
 		}
 	],
 	"launch": {
