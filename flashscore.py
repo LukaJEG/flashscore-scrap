@@ -26,13 +26,14 @@ def main():
             data_list[-1].update({key: value})
 
     for game in data_list:
-        if 'AA' in list(game.keys())[0]:
-            date = datetime.fromtimestamp(int(game.get("AD")))
-            team_1 = game.get("AE")
-            team_2 = game.get("AF")
-            score = f'{game.get("AG")} : {game.get("AH")}'
+        print(game)
+        # if 'AA' in list(game.keys())[0]:
+        #     date = datetime.fromtimestamp(int(game.get("AD")))
+        #     team_1 = game.get("AE")
+        #     team_2 = game.get("AF")
+        #     score = f'{game.get("AG")} : {game.get("AH")}'
 
-            print(date, team_1, team_2, score, sep='/')
+        #     print(date, team_1, team_2, score, sep='/')
 
             # print(json.dumps(game, ensure_ascii=False, indent=2))
 
