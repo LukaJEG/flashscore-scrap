@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkflashscore=self.webpackChunkflashscore||[]).push([[5683],{75497:(e,r,a)=>{var n=a(67005);window.bannerReplacer=window.bannerReplacer||new n.BannerReplacer}},e=>{e.O(0,[8096],(()=>{return r=75497,e(e.s=r);var r}));e.O()}]);
